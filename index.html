@@ -3,263 +3,144 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Thinking Fit Check</title>
+  <title>Quiet Fit</title>
   <style>
-    body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; margin: 0; background: #fafafa; color: #111; }
-    .wrap { max-width: 860px; margin: 0 auto; padding: 28px 18px 60px; }
-    .card { background: #fff; border: 1px solid #e8e8e8; border-radius: 16px; padding: 18px; box-shadow: 0 1px 0 rgba(0,0,0,0.02); }
-    h1 { font-size: 28px; margin: 0 0 8px; font-weight: 650; letter-spacing: -0.02em; }
-    p { line-height: 1.55; margin: 10px 0; }
+    body {
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      margin: 0;
+      background: #fafafa;
+      color: #111;
+    }
+    .wrap {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 40px 18px 80px;
+    }
+    .seasonal {
+      font-size: 13px;
+      color: #555;
+      margin: 0 0 10px;
+    }
+    .card {
+      background: #fff;
+      border: 1px solid #e8e8e8;
+      border-radius: 18px;
+      padding: 22px;
+      box-shadow: 0 1px 0 rgba(0,0,0,0.02);
+      margin-bottom: 18px;
+    }
+    h1 {
+      font-size: 30px;
+      margin: 0 0 12px;
+      font-weight: 650;
+      letter-spacing: -0.02em;
+    }
+    h2 {
+      font-size: 20px;
+      margin: 0 0 6px;
+    }
+    p {
+      line-height: 1.6;
+      margin: 8px 0;
+    }
     .muted { color: #444; }
-    .section { margin-top: 16px; }
-    .q { padding: 14px 10px; border-top: 1px solid #f0f0f0; }
-    .q:first-child { border-top: 0; }
-    .q-title { margin: 0 0 8px; font-size: 15px; }
-    .opts { display: flex; gap: 10px; flex-wrap: wrap; }
-    label { display: inline-flex; gap: 8px; align-items: center; padding: 8px 10px; border: 1px solid #ececec; border-radius: 999px; cursor: pointer; background: #fff; }
-    input[type="radio"] { accent-color: #111; }
-    .row { display: grid; grid-template-columns: 1fr; gap: 14px; }
-    .btns { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 14px; }
-    button { border: 1px solid #e5e5e5; background: #111; color: #fff; padding: 10px 14px; border-radius: 12px; cursor: pointer; }
-    button.secondary { background: #fff; color: #111; }
-    .results { margin-top: 16px; }
-    .pill { display: inline-block; padding: 6px 10px; border-radius: 999px; border: 1px solid #e8e8e8; background: #fff; margin-right: 8px; margin-bottom: 8px; }
-    .grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 12px; }
     .small { font-size: 13px; color: #444; }
-    textarea { width: 100%; min-height: 90px; padding: 10px; border-radius: 12px; border: 1px solid #e8e8e8; }
-    @media (max-width: 720px) { .grid { grid-template-columns: 1fr; } }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0,1fr));
+      gap: 14px;
+      margin-top: 14px;
+    }
+    @media (max-width: 720px) {
+      .grid { grid-template-columns: 1fr; }
+    }
+    a.card-link {
+      text-decoration: none;
+      color: inherit;
+      display: block;
+    }
+    .tag {
+      display: inline-block;
+      padding: 4px 8px;
+      border-radius: 999px;
+      border: 1px solid #e8e8e8;
+      background: #fff;
+      font-size: 12px;
+      margin-right: 6px;
+      margin-bottom: 6px;
+    }
+    footer {
+      margin-top: 40px;
+      padding-top: 18px;
+      border-top: 1px solid #e8e8e8;
+    }
+    @media print {
+      body { background: #fff; color: #000; }
+      .wrap { max-width: 100%; padding: 0; }
+      .card { border: none; box-shadow: none; padding: 0; }
+      .grid { display: block; }
+      footer { display: none; }
+    }
   </style>
 </head>
 <body>
-  <div class="wrap">
-    <div class="card">
-      <h1>Thinking Fit Check</h1>
-      <p class="muted">A quick self-diagnostic for how you think and cope under pressure. This is not a personality test. It helps you choose environments that protect your intelligence.</p>
-      <p class="small">Scale per item: 0 = Not me, 1 = Sometimes, 2 = Often, 3 = Strongly me</p>
-    </div>
+<div class="wrap">
 
-    <div class="card section" id="quiz"></div>
+  <p class="seasonal">This season, release what required too much explanation.</p>
 
-    <div class="card section">
-      <div class="btns">
-        <button id="calc">Calculate</button>
-        <button class="secondary" id="reset">Reset</button>
-        <button class="secondary" id="copy">Copy results</button>
-      </div>
-      <div class="results" id="results"></div>
-    </div>
+  <div class="card">
+    <h1>Quiet Fit</h1>
+    <p class="muted">
+      A small set of self-checks for people whose intelligence works well,
+      but not everywhere.
+    </p>
+    <p class="small">
+      These are not personality tests.  
+      They do not rank, diagnose, or optimize you.
+    </p>
+    <p class="small">
+      Enter where something feels familiar. You don’t need all of them.
+    </p>
   </div>
 
-<script>
-  const SCALE = [
-    { label: "0 · Not me", value: 0 },
-    { label: "1 · Sometimes", value: 1 },
-    { label: "2 · Often", value: 2 },
-    { label: "3 · Strongly me", value: 3 },
-  ];
+  <div class="grid">
 
-  const DIMENSIONS = {
-    C: { name: "Commitment Sensitivity", blurb: "How strongly irreversibility and public binding affect you." },
-    R: { name: "Reward Timing", blurb: "Whether your reward happens at insight or completion." },
-    P: { name: "Pressure Dependence", blurb: "Whether pressure improves performance or collapses thinking." },
-    I: { name: "Integrity Load", blurb: "How draining incoherence and hypocrisy feel." },
-  };
+    <a href="thinking-fit.html" class="card card-link">
+      <h2>Thinking Fit</h2>
+      <p class="muted">How your thinking responds to pressure, commitment, and coherence.</p>
+      <span class="tag">work</span><span class="tag">clarity</span>
+      <p class="small">If you think clearly until urgency or performance enters.</p>
+    </a>
 
-  const QUESTIONS = [
-    // C
-    { dim: "C", text: "Publishing or “making it official” creates tension in my body." },
-    { dim: "C", text: "I prefer drafts, reversibility, and soft commitments." },
-    { dim: "C", text: "I delay when a decision feels irreversible, even if I know what to do." },
-    { dim: "C", text: "Live performance makes me feel compressed or misrepresented." },
-    // R
-    { dim: "R", text: "I feel most satisfied when something finally makes sense." },
-    { dim: "R", text: "After insight, doing the implementation feels oddly heavy." },
-    { dim: "R", text: "Finishing is less rewarding than clarifying." },
-    { dim: "R", text: "I can lose interest once the model is clear." },
-    // P
-    { dim: "P", text: "Urgency makes my thinking worse, not better." },
-    { dim: "P", text: "Under pressure I either rush and regret it, or shut down." },
-    { dim: "P", text: "I do my best work when I can slow down briefly first." },
-    { dim: "P", text: "Accountability and streaks tend to backfire for me." },
-    // I
-    { dim: "I", text: "Hypocrisy or double standards bother me more than disagreement." },
-    { dim: "I", text: "I can tolerate complexity, but not incoherence." },
-    { dim: "I", text: "Context changes what feels acceptable, and that feels fair to me." },
-    { dim: "I", text: "I get drained in environments that reward performative certainty." },
-  ];
+    <a href="learning-fit.html" class="card card-link">
+      <h2>Learning Fit</h2>
+      <p class="muted">Which learning formats support understanding rather than exhaust it.</p>
+      <span class="tag">education</span><span class="tag">self-directed</span>
+      <p class="small">If school or courses drained you despite real curiosity.</p>
+    </a>
 
-  function renderQuiz() {
-    const root = document.getElementById("quiz");
-    root.innerHTML = "";
+    <a href="status-fit.html" class="card card-link">
+      <h2>Status Fit</h2>
+      <p class="muted">Sensitivity to unspoken rank and default positioning.</p>
+      <span class="tag">fairness</span><span class="tag">power</span>
+      <p class="small">If difference doesn’t drain you, but quiet inequality does.</p>
+    </a>
 
-    const groups = ["C","R","P","I"];
-    groups.forEach(g => {
-      const header = document.createElement("div");
-      header.innerHTML = `
-        <h2 style="margin:0 0 6px; font-size:18px;">${DIMENSIONS[g].name}</h2>
-        <p class="small" style="margin:0 0 10px;">${DIMENSIONS[g].blurb}</p>
-      `;
-      root.appendChild(header);
+    <a href="context-vs-condition.html" class="card card-link">
+      <h2>Context vs Condition</h2>
+      <p class="muted">Whether difficulty changes with environment or persists everywhere.</p>
+      <span class="tag">precision</span><span class="tag">mental health</span>
+      <p class="small">If labels almost fit, but never fully explain you.</p>
+    </a>
 
-      QUESTIONS.filter(q => q.dim === g).forEach((q, idx) => {
-        const qIndex = QUESTIONS.indexOf(q);
-        const wrap = document.createElement("div");
-        wrap.className = "q";
-        wrap.innerHTML = `
-          <p class="q-title">${qIndex+1}. ${q.text}</p>
-          <div class="opts" role="group" aria-label="Question ${qIndex+1}">
-            ${SCALE.map(s => `
-              <label>
-                <input type="radio" name="q${qIndex}" value="${s.value}">
-                <span>${s.label}</span>
-              </label>
-            `).join("")}
-          </div>
-        `;
-        root.appendChild(wrap);
-      });
-    });
+  </div>
 
-    const note = document.createElement("div");
-    note.className = "section";
-    note.innerHTML = `
-      <h2 style="margin:0 0 6px; font-size:18px;">Optional note</h2>
-      <p class="small" style="margin:0 0 10px;">If you want, add a sentence about what you’re currently stuck on. This is for you. It is not sent anywhere.</p>
-      <textarea id="note" placeholder="One sentence."></textarea>
-    `;
-    root.appendChild(note);
-  }
+  <footer>
+    <p class="small">
+      If changing the container changes the outcome, the container matters.
+    </p>
+  </footer>
 
-  function getAnswer(i) {
-    const el = document.querySelector(`input[name="q${i}"]:checked`);
-    return el ? Number(el.value) : null;
-  }
-
-  function level(score) {
-    if (score >= 8) return "High";
-    if (score >= 4) return "Medium";
-    return "Low";
-  }
-
-  function patterns(scores) {
-    const {C,R,P,I} = scores;
-    const out = [];
-    if (C >= 8 && P >= 8) out.push("High C + High P: performance pressure is a primary trigger. You need private delivery, protected pacing, and low-urgency containers.");
-    if (R >= 8 && C >= 8) out.push("High R + High C: you complete internally, then struggle to bind externally. Use a “handoff” ritual: model complete → smallest external step → neutral log.");
-    if (I >= 8) out.push("High I: incoherence drains you fast. Choose values-consistent systems. Avoid performative environments that reward contradictions.");
-    if (C >= 8 && R >= 8 && P >= 8 && I >= 8) out.push("High across all: threshold-based thinker. Portfolio careers with bounded engagements are protective.");
-    if (out.length === 0) out.push("No single dominant pattern detected. Use your highest dimension(s) to choose environments that fit.");
-    return out;
-  }
-
-  function careers(scores) {
-    const {C,R,P,I} = scores;
-    const safe = [];
-    const risky = [];
-
-    // Safe defaults for high C/P
-    if (C >= 8 || P >= 8) {
-      safe.push("Asynchronous roles: written audits, analysis, strategy memos, research synthesis, documentation, quiet advisory.");
-      risky.push("Always-on, live-facing roles: tutoring, high-volume sales, daily content performance, reactive support queues.");
-    }
-
-    // High R fits upstream roles
-    if (R >= 8) {
-      safe.push("Upstream work: problem framing, systems design, diagnostics, service design, product strategy (not sprint-driven).");
-      risky.push("Throughput-only roles: constant execution, repetitive task pipelines, velocity-scored environments.");
-    }
-
-    // High I fits integrity-sensitive domains
-    if (I >= 8) {
-      safe.push("Ethics/coherence-heavy work: policy, trust & safety thinking, governance, standards, brand integrity, quality systems, editorial review.");
-      risky.push("Roles requiring repeated ‘say anything to win’ behavior, slogan compliance, or value misalignment.");
-    }
-
-    // Balanced
-    if (safe.length === 0) {
-      safe.push("Mixed-fit profile: choose based on your top two dimensions and the pressure style of the environment.");
-    }
-
-    return { safe, risky };
-  }
-
-  function calculate() {
-    const scores = { C:0, R:0, P:0, I:0 };
-    let unanswered = 0;
-
-QUESTIONS.forEach((q, qIndex) => {
-  if (q.dim !== g) return;
-
-  const wrap = document.createElement("div");
-  wrap.className = "q";
-  wrap.innerHTML = `
-    <p class="q-title">${qIndex + 1}. ${q.text}</p>
-    <div class="opts" role="group" aria-label="Question ${qIndex + 1}">
-      ${SCALE.map(s => `
-        <label>
-          <input type="radio" name="q${qIndex}" value="${s.value}">
-          <span>${s.label}</span>
-        </label>
-      `).join("")}
-    </div>
-  `;
-  root.appendChild(wrap);
-});
-
-    const blocks = Object.keys(scores).map(k => {
-      const s = scores[k];
-      return `<span class="pill"><strong>${k}</strong> ${DIMENSIONS[k].name}: ${s}/12 · ${level(s)}</span>`;
-    }).join("");
-
-    const pat = patterns(scores).map(x => `<li>${x}</li>`).join("");
-    const car = careers(scores);
-    const safe = car.safe.map(x => `<li>${x}</li>`).join("");
-    const risky = car.risky.map(x => `<li>${x}</li>`).join("");
-    const note = (document.getElementById("note")?.value || "").trim();
-
-    res.innerHTML = `
-      <div>${blocks}</div>
-      <div class="grid" style="margin-top:12px;">
-        <div class="card" style="border-radius:14px;">
-          <h3 style="margin:0 0 8px; font-size:16px;">What this suggests</h3>
-          <ul style="margin:0; padding-left:18px;">${pat}</ul>
-        </div>
-        <div class="card" style="border-radius:14px;">
-          <h3 style="margin:0 0 8px; font-size:16px;">Career fit hints</h3>
-          <p class="small" style="margin:0 0 6px;"><strong>Often better:</strong></p>
-          <ul style="margin:0 0 10px; padding-left:18px;">${safe}</ul>
-          <p class="small" style="margin:0 0 6px;"><strong>Often draining:</strong></p>
-          <ul style="margin:0; padding-left:18px;">${risky}</ul>
-        </div>
-      </div>
-      ${note ? `<div style="margin-top:12px;"><p class="small"><strong>Your note:</strong></p><div class="card" style="border-radius:14px;">${escapeHtml(note)}</div></div>` : ""}
-      <p class="small" style="margin-top:12px;">This tool is descriptive, not diagnostic. Use it to choose better containers, not to judge yourself.</p>
-    `;
-  }
-
-  function escapeHtml(str) {
-    return str.replaceAll("&","&amp;").replaceAll("<","&lt;").replaceAll(">","&gt;").replaceAll('"',"&quot;").replaceAll("'","&#039;");
-  }
-
-  function copyResults() {
-    const res = document.getElementById("results");
-    const text = res.innerText?.trim();
-    if (!text) return alert("Calculate results first.");
-    navigator.clipboard.writeText(text).then(() => alert("Copied."));
-  }
-
-  function resetAll() {
-    document.querySelectorAll('input[type="radio"]').forEach(i => i.checked = false);
-    const note = document.getElementById("note");
-    if (note) note.value = "";
-    document.getElementById("results").innerHTML = "";
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  }
-
-  renderQuiz();
-  document.getElementById("calc").addEventListener("click", calculate);
-  document.getElementById("reset").addEventListener("click", resetAll);
-  document.getElementById("copy").addEventListener("click", copyResults);
-</script>
+</div>
 </body>
 </html>

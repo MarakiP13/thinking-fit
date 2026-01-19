@@ -5,51 +5,181 @@
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>Thinking Fit Check</title>
 <style>
-body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:#fafafa;margin:0;color:#111}
-.wrap{max-width:860px;margin:0 auto;padding:28px 18px 60px}
-.card{background:#fff;border:1px solid #e8e8e8;border-radius:16px;padding:18px;margin-bottom:16px}
-h1{font-size:28px;margin:0 0 8px;font-weight:650}
-p{line-height:1.55}
-.small{font-size:13px;color:#444}
-.q{border-top:1px solid #f0f0f0;padding:14px 0}
-.opts label{margin-right:12px}
-button{margin-top:14px;padding:10px 14px;border-radius:12px;border:1px solid #ddd;background:#111;color:#fff}
+body {
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  margin: 0;
+  background: #fafafa;
+  color: #111;
+}
+.wrap {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 28px 18px 60px;
+}
+.card {
+  background: #fff;
+  border: 1px solid #e8e8e8;
+  border-radius: 16px;
+  padding: 20px;
+  margin-bottom: 18px;
+}
+h1 {
+  font-size: 28px;
+  margin: 0 0 10px;
+  font-weight: 650;
+  letter-spacing: -0.02em;
+}
+h2 {
+  font-size: 18px;
+  margin: 18px 0 6px;
+}
+p {
+  line-height: 1.6;
+  margin: 8px 0;
+}
+.small {
+  font-size: 13px;
+  color: #444;
+}
+.q {
+  border-top: 1px solid #f0f0f0;
+  padding: 14px 0;
+}
+.opts label {
+  margin-right: 14px;
+  font-size: 14px;
+}
 </style>
 </head>
 <body>
 <div class="wrap">
+
 <div class="card">
 <h1>Thinking Fit</h1>
-<p class="small">A reflection on how your thinking responds to pressure and commitment.</p>
-</div>
-
-<div class="card">
-<div class="q">My thinking sharpens when I’m not rushed.<br>
-<label><input type="radio" name="q1">Yes</label>
-<label><input type="radio" name="q1">Sometimes</label>
-<label><input type="radio" name="q1">No</label></div>
-
-<div class="q">Urgency or performance makes me freeze or disengage.<br>
-<label><input type="radio" name="q2">Yes</label>
-<label><input type="radio" name="q2">Sometimes</label>
-<label><input type="radio" name="q2">No</label></div>
-
-<div class="q">I complete insight internally before acting.<br>
-<label><input type="radio" name="q3">Yes</label>
-<label><input type="radio" name="q3">Sometimes</label>
-<label><input type="radio" name="q3">No</label></div>
-
-<div class="q">Premature commitment disrupts my thinking.<br>
-<label><input type="radio" name="q4">Yes</label>
-<label><input type="radio" name="q4">Sometimes</label>
-<label><input type="radio" name="q4">No</label></div>
-</div>
-
-<div class="card">
 <p class="small">
-If these feel familiar, your thinking may be **context-sensitive**, not slow or avoidant.
+This is a reflection on how your thinking behaves under pressure, pacing, and commitment.
+It is not a measure of intelligence or motivation.
+</p>
+<p class="small">
+Answer based on patterns, not isolated moments.
 </p>
 </div>
+
+<div class="card">
+<h2>Pacing</h2>
+
+<div class="q">
+My thinking improves when I am not rushed.<br>
+<label><input type="radio" name="p1">Yes</label>
+<label><input type="radio" name="p1">Sometimes</label>
+<label><input type="radio" name="p1">No</label>
+</div>
+
+<div class="q">
+Deadlines interrupt my thinking rather than help it.<br>
+<label><input type="radio" name="p2">Yes</label>
+<label><input type="radio" name="p2">Sometimes</label>
+<label><input type="radio" name="p2">No</label>
+</div>
+
+<div class="q">
+I need unstructured time before clarity emerges.<br>
+<label><input type="radio" name="p3">Yes</label>
+<label><input type="radio" name="p3">Sometimes</label>
+<label><input type="radio" name="p3">No</label>
+</div>
+</div>
+
+<div class="card">
+<h2>Pressure response</h2>
+
+<div class="q">
+External urgency makes my thinking narrow or stall.<br>
+<label><input type="radio" name="r1">Yes</label>
+<label><input type="radio" name="r1">Sometimes</label>
+<label><input type="radio" name="r1">No</label>
+</div>
+
+<div class="q">
+I think best when no performance is expected of me.<br>
+<label><input type="radio" name="r2">Yes</label>
+<label><input type="radio" name="r2">Sometimes</label>
+<label><input type="radio" name="r2">No</label>
+</div>
+
+<div class="q">
+I withdraw cognitively when pressured to decide too fast.<br>
+<label><input type="radio" name="r3">Yes</label>
+<label><input type="radio" name="r3">Sometimes</label>
+<label><input type="radio" name="r3">No</label>
+</div>
+</div>
+
+<div class="card">
+<h2>Completion and action</h2>
+
+<div class="q">
+My thinking completes internally before I act.<br>
+<label><input type="radio" name="c1">Yes</label>
+<label><input type="radio" name="c1">Sometimes</label>
+<label><input type="radio" name="c1">No</label>
+</div>
+
+<div class="q">
+I often lose momentum after insight, before execution.<br>
+<label><input type="radio" name="c2">Yes</label>
+<label><input type="radio" name="c2">Sometimes</label>
+<label><input type="radio" name="c2">No</label>
+</div>
+
+<div class="q">
+Being watched or evaluated disrupts my ability to act.<br>
+<label><input type="radio" name="c3">Yes</label>
+<label><input type="radio" name="c3">Sometimes</label>
+<label><input type="radio" name="c3">No</label>
+</div>
+</div>
+
+<div class="card">
+<h2>Commitment sensitivity</h2>
+
+<div class="q">
+Early commitment interferes with my thinking process.<br>
+<label><input type="radio" name="k1">Yes</label>
+<label><input type="radio" name="k1">Sometimes</label>
+<label><input type="radio" name="k1">No</label>
+</div>
+
+<div class="q">
+I resist committing before I feel internally settled.<br>
+<label><input type="radio" name="k2">Yes</label>
+<label><input type="radio" name="k2">Sometimes</label>
+<label><input type="radio" name="k2">No</label>
+</div>
+
+<div class="q">
+Once committed, I feel constrained rather than supported.<br>
+<label><input type="radio" name="k3">Yes</label>
+<label><input type="radio" name="k3">Sometimes</label>
+<label><input type="radio" name="k3">No</label>
+</div>
+</div>
+
+<div class="card">
+<h2>Reflection</h2>
+<p class="small">
+If many of these feel familiar, your thinking may be **high-integrity, pressure-sensitive, and internally paced**.
+</p>
+<p class="small">
+This pattern is often mislabeled as procrastination, avoidance, or lack of discipline.
+In reality, it reflects a system that requires the right container to function.
+</p>
+<p class="small">
+Nothing here needs fixing.
+What matters is **fit**.
+</p>
+</div>
+
 </div>
 </body>
 </html>

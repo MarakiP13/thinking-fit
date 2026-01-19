@@ -73,121 +73,262 @@ button {
 </style>
 </head>
 <body>
+
 <div class="wrap">
 
-<div class="card">
-<h1>Thinking Fit</h1>
-<p class="small">
-This check explores how your thinking responds to pressure, pacing, and commitment.
-It is not a test of intelligence or motivation.
-</p>
-<p class="small">
-Answer based on repeated patterns, not isolated moments.
-</p>
-</div>
-
-<div class="card" id="questions">
-
-<h2>Pacing</h2>
-<div class="q">My thinking improves when I am not rushed.<br>
-<label><input type="radio" name="p1" value="1">Yes</label>
-<label><input type="radio" name="p1" value="0.5">Sometimes</label>
-<label><input type="radio" name="p1" value="0">No</label></div>
-
-<div class="q">Deadlines interrupt my thinking rather than help it.<br>
-<label><input type="radio" name="p2" value="1">Yes</label>
-<label><input type="radio" name="p2" value="0.5">Sometimes</label>
-<label><input type="radio" name="p2" value="0">No</label></div>
-
-<h2>Pressure response</h2>
-<div class="q">External urgency makes my thinking narrow or stall.<br>
-<label><input type="radio" name="r1" value="1">Yes</label>
-<label><input type="radio" name="r1" value="0.5">Sometimes</label>
-<label><input type="radio" name="r1" value="0">No</label></div>
-
-<div class="q">I think best when no performance is expected of me.<br>
-<label><input type="radio" name="r2" value="1">Yes</label>
-<label><input type="radio" name="r2" value="0.5">Sometimes</label>
-<label><input type="radio" name="r2" value="0">No</label></div>
-
-<h2>Completion and commitment</h2>
-<div class="q">My thinking completes internally before I act.<br>
-<label><input type="radio" name="c1" value="1">Yes</label>
-<label><input type="radio" name="c1" value="0.5">Sometimes</label>
-<label><input type="radio" name="c1" value="0">No</label></div>
-
-<div class="q">Early commitment disrupts my thinking process.<br>
-<label><input type="radio" name="c2" value="1">Yes</label>
-<label><input type="radio" name="c2" value="0.5">Sometimes</label>
-<label><input type="radio" name="c2" value="0">No</label></div>
-
-<button onclick="showResults()">Reflect</button>
-</div>
-
-<div class="card results" id="results">
-
-<h2>Reflection</h2>
-<p>
-If many of these felt familiar, your thinking may be
-<strong>high-integrity, pressure-sensitive, and internally paced</strong>.
-</p>
-<p>
-This pattern is often mislabeled as procrastination, avoidance, or lack of discipline.
-In reality, it reflects a system that requires the right container to function.
-</p>
-<p>
-Nothing here needs fixing. What matters is <strong>fit</strong>.
-</p>
-
-<h2>Where this thinking tends to work well</h2>
-<div class="grid">
+  <!-- Intro -->
   <div class="card">
-    <strong>Advisory / Research / Strategy roles</strong>
+    <h1>Thinking Fit</h1>
     <p class="small">
-      Depth-first thinking, private synthesis, delayed output,
-      low surveillance, high trust.
+      This check explores how your thinking responds to pressure, pacing, and commitment.
+      It is not a measure of intelligence, motivation, or discipline.
+    </p>
+    <p class="small">
+      Answer based on repeated patterns, not isolated moments.
     </p>
   </div>
-  <div class="card">
-    <strong>Independent or low-pressure creative work</strong>
-    <p class="small">
-      Writing, systems design, analysis, curation,
-      where insight precedes execution.
-    </p>
-  </div>
-</div>
 
-<h2>Where it reliably breaks</h2>
-<div class="grid">
-  <div class="card">
-    <strong>High-urgency execution roles</strong>
-    <p class="small">
-      Constant deadlines, rapid delivery, visible performance,
-      shallow feedback loops.
-    </p>
-  </div>
-  <div class="card">
-    <strong>Early-binding environments</strong>
-    <p class="small">
-      Forced commitment before clarity,
-      public accountability before internal settlement.
-    </p>
-  </div>
-</div>
+  <!-- Questions -->
+  <div class="card" id="questions">
 
-</div>
+    <h2>Pacing</h2>
+    <div class="q">
+      My thinking improves when I am not rushed.<br>
+      <label><input type="radio" name="p1" value="1">Yes</label>
+      <label><input type="radio" name="p1" value="0.5">Sometimes</label>
+      <label><input type="radio" name="p1" value="0">No</label>
+    </div>
+
+    <div class="q">
+      Deadlines interrupt my thinking rather than help it.<br>
+      <label><input type="radio" name="p2" value="1">Yes</label>
+      <label><input type="radio" name="p2" value="0.5">Sometimes</label>
+      <label><input type="radio" name="p2" value="0">No</label>
+    </div>
+
+    <h2>Pressure response</h2>
+    <div class="q">
+      External urgency makes my thinking narrow or stall.<br>
+      <label><input type="radio" name="r1" value="1">Yes</label>
+      <label><input type="radio" name="r1" value="0.5">Sometimes</label>
+      <label><input type="radio" name="r1" value="0">No</label>
+    </div>
+
+    <div class="q">
+      I think best when no performance is expected of me.<br>
+      <label><input type="radio" name="r2" value="1">Yes</label>
+      <label><input type="radio" name="r2" value="0.5">Sometimes</label>
+      <label><input type="radio" name="r2" value="0">No</label>
+    </div>
+
+    <h2>Completion and commitment</h2>
+    <div class="q">
+      My thinking completes internally before I act.<br>
+      <label><input type="radio" name="c1" value="1">Yes</label>
+      <label><input type="radio" name="c1" value="0.5">Sometimes</label>
+      <label><input type="radio" name="c1" value="0">No</label>
+    </div>
+
+    <div class="q">
+      Early commitment disrupts my thinking process.<br>
+      <label><input type="radio" name="c2" value="1">Yes</label>
+      <label><input type="radio" name="c2" value="0.5">Sometimes</label>
+      <label><input type="radio" name="c2" value="0">No</label>
+    </div>
+
+    <button onclick="showResults()">Reflect</button>
+  </div>
+
+  <!-- Results -->
+  <div class="card results" id="results">
+
+    <!-- Internally paced -->
+    <div id="result-internal" class="result-block" style="display:none;">
+      <h2>Reflection</h2>
+      <p>
+        Your responses suggest a <strong>high-integrity, pressure-sensitive, internally paced</strong> thinking system.
+      </p>
+      <p>
+        This pattern is often mislabeled as procrastination, avoidance, or lack of discipline.
+        In reality, it reflects a system that requires the right container to function.
+      </p>
+      <p>
+        Nothing here needs fixing. What matters is <strong>fit</strong>.
+      </p>
+
+      <h2>Where this thinking tends to work well</h2>
+      <div class="grid">
+        <div class="card">
+          <strong>Advisory, research, or strategy roles</strong>
+          <p class="small">
+            Depth-first thinking, private synthesis, delayed output,
+            low surveillance, high trust.
+          </p>
+        </div>
+        <div class="card">
+          <strong>Independent or low-pressure creative work</strong>
+          <p class="small">
+            Writing, systems design, analysis, curation,
+            where insight precedes execution.
+          </p>
+        </div>
+      </div>
+
+      <h2>Where it reliably breaks</h2>
+      <div class="grid">
+        <div class="card">
+          <strong>High-urgency execution roles</strong>
+          <p class="small">
+            Constant deadlines, rapid delivery,
+            visible performance, shallow feedback loops.
+          </p>
+        </div>
+        <div class="card">
+          <strong>Early-binding environments</strong>
+          <p class="small">
+            Forced commitment before clarity,
+            public accountability before internal settlement.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Context-dependent -->
+    <div id="result-mixed" class="result-block" style="display:none;">
+      <h2>Reflection</h2>
+      <p>
+        Your responses suggest a <strong>context-dependent thinking pattern</strong>.
+      </p>
+      <p>
+        Your thinking can function very well in some environments and degrade in others.
+        Performance varies by container, not ability.
+      </p>
+
+      <h2>Where this thinking tends to work well</h2>
+      <div class="grid">
+        <div class="card">
+          <strong>Hybrid or flexible roles</strong>
+          <p class="small">
+            Clear goals with autonomy over pacing,
+            alternating collaboration and solo work.
+          </p>
+        </div>
+        <div class="card">
+          <strong>Project-based work</strong>
+          <p class="small">
+            Exploration first, execution later,
+            structure that adapts as understanding grows.
+          </p>
+        </div>
+      </div>
+
+      <h2>Where it reliably breaks</h2>
+      <div class="grid">
+        <div class="card">
+          <strong>Inconsistent environments</strong>
+          <p class="small">
+            Shifting expectations,
+            unclear authority, unpredictable evaluation.
+          </p>
+        </div>
+        <div class="card">
+          <strong>One-size-fits-all systems</strong>
+          <p class="small">
+            Rigid processes that ignore task complexity.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Externally paced -->
+    <div id="result-external" class="result-block" style="display:none;">
+      <h2>Reflection</h2>
+      <p>
+        Your responses suggest a <strong>pressure-tolerant, execution-stable</strong> thinking system.
+      </p>
+      <p>
+        Deadlines, visible performance, and early commitment are less likely
+        to disrupt your ability to think and act.
+      </p>
+
+      <h2>Where this thinking tends to work well</h2>
+      <div class="grid">
+        <div class="card">
+          <strong>Execution-focused roles</strong>
+          <p class="small">
+            Clear timelines, rapid iteration,
+            visible progress, operational responsibility.
+          </p>
+        </div>
+        <div class="card">
+          <strong>Leadership or coordination roles</strong>
+          <p class="small">
+            Decision-making under constraint,
+            aligning people and resources toward action.
+          </p>
+        </div>
+      </div>
+
+      <h2>Where it reliably breaks</h2>
+      <div class="grid">
+        <div class="card">
+          <strong>Over-abstract environments</strong>
+          <p class="small">
+            Endless exploration without decision,
+            unclear ownership, no path to action.
+          </p>
+        </div>
+        <div class="card">
+          <strong>Low-feedback systems</strong>
+          <p class="small">
+            Delayed consequences,
+            invisible progress, lack of closure.
+          </p>
+        </div>
+      </div>
+    </div>
+
+  </div>
 
 </div>
 
 <script>
 function showResults() {
-  const radios = document.querySelectorAll('#questions input[type=radio]:checked');
-  if (radios.length < 6) {
+  const groups = {
+    pacing: ["p1","p2"],
+    pressure: ["r1","r2"],
+    commitment: ["c1","c2"]
+  };
+
+  let scores = { pacing: 0, pressure: 0, commitment: 0 };
+  let answered = 0;
+
+  for (const [group, qs] of Object.entries(groups)) {
+    qs.forEach(q => {
+      const checked = document.querySelector(`input[name="${q}"]:checked`);
+      if (!checked) return;
+      scores[group] += Number(checked.value);
+      answered++;
+    });
+  }
+
+  if (answered < 6) {
     alert("Answer all prompts first.");
     return;
   }
-  document.getElementById('results').style.display = 'block';
-  document.getElementById('results').scrollIntoView({ behavior: 'smooth' });
+
+  const pacingHigh = scores.pacing >= 1.5;
+  const pressureHigh = scores.pressure >= 1.5;
+  const commitmentHigh = scores.commitment >= 1.5;
+
+  let resultType = "mixed";
+  if (pacingHigh && pressureHigh && commitmentHigh) resultType = "internal";
+  else if (!pacingHigh && !pressureHigh && !commitmentHigh) resultType = "external";
+
+  document.querySelectorAll(".result-block").forEach(b => b.style.display = "none");
+  document.getElementById("result-" + resultType).style.display = "block";
+  document.getElementById("results").style.display = "block";
+  document.getElementById("results").scrollIntoView({ behavior: "smooth" });
 }
 </script>
 
